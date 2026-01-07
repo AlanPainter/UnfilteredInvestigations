@@ -1,53 +1,395 @@
 <!doctype html>
-<html lang="en" style="background-color: black;">
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Unfiltered Investigations LLC — Private Investigation services. Call/text +1 (706) 956-9000 or email PrivateAI@UnfilteredInvestigations.com." />
   <title>Unfiltered Investigations LLC</title>
   <style>
-    /* Keeps it very simple; no extra content */
-    html,
+    :root {
+      --bg: #0b0f14;
+      --card: #111826;
+      --text: #e6eefc;
+      --muted: #b8c4da;
+      --accent: #4da3ff;
+      --accent2: #7c4dff;
+      --border: rgba(255, 255, 255, .10);
+      --shadow: 0 14px 40px rgba(0, 0, 0, .45);
+      --radius: 18px;
+      --max: 980px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
     body {
-      height: 100%;
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      display: grid;
-      place-items: center;
-      background: black;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(77, 163, 255, .22), transparent 55%),
+        radial-gradient(1200px 600px at 90% 0%, rgba(124, 77, 255, .18), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.45;
     }
 
-    main {
-      text-align: center;
-      background-color: black;
+    a {
+      color: inherit
     }
 
-    img {
-      max-width: 240px;
-      /* adjust as needed */
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: saturate(140%) blur(10px);
+      background: rgba(11, 15, 20, .55);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 99px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 18px rgba(77, 163, 255, .35)
+    }
+
+    .links {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: var(--muted);
+      padding: 10px 10px;
+      border-radius: 12px;
+    }
+
+    .links a:focus,
+    .links a:hover {
+      background: rgba(255, 255, 255, .06);
+      color: var(--text)
+    }
+
+    .hero {
+      padding: 22px 0 10px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .banner {
+      width: 100%;
       height: auto;
       display: block;
-      margin: 0 auto 16px;
+      background: #000;
     }
 
-    p {
+    .hero-inner {
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    h1 {
+      margin: 2px 0 0;
+      font-size: clamp(22px, 3.2vw, 34px);
+      line-height: 1.12;
+    }
+
+    .sub {
+      color: var(--muted);
       margin: 0;
-      font-size: 1.1rem;
-      color: white;
+      font-size: 15px;
+    }
+
+    .cta {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 14px;
+      border-radius: 16px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, .06);
+      font-weight: 700;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(77, 163, 255, .95), rgba(124, 77, 255, .88));
+      border-color: rgba(255, 255, 255, .18);
+      color: #06101f;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .35);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px)
+    }
+
+    .btn:active {
+      transform: translateY(0px)
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+      margin: 14px 0 26px;
+    }
+
+    .section {
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(17, 24, 38, .55);
+    }
+
+    .section h2 {
+      margin: 0 0 8px;
+      font-size: 18px
+    }
+
+    .section p {
+      margin: 0;
+      color: var(--muted)
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    li {
+      margin: 6px 0
+    }
+
+    .contact {
+      display: grid;
+      gap: 12px;
+    }
+
+    .pill {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, .04);
+      flex-wrap: wrap;
+    }
+
+    .pill .label {
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .pill .value {
+      font-weight: 700
+    }
+
+    .pill a {
+      text-decoration: none
+    }
+
+    footer {
+      padding: 18px 0 34px;
+      color: rgba(230, 238, 252, .65);
+      font-size: 13px;
+    }
+
+    /* Desktop enhancements */
+    @media (min-width: 780px) {
+      .hero-inner {
+        padding: 22px;
+        grid-template-columns: 1.25fr .75fr;
+        align-items: center;
+      }
+
+      .cta {
+        grid-template-columns: 1fr
+      }
+
+      .grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .contact {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .btn:hover {
+        transform: none
+      }
     }
   </style>
 </head>
 
 <body>
-  <main>
-    <!-- Replace logo.png with your actual logo filename, or put your file next to this HTML named exactly logo.png -->
-    <img src="assets/Unfiltered-Investigations-LLC-No-Phone-Number-Logo.png" alt="Logo" />
-    <p style="font-size:2.5rem;color: red;"><b><i>Will Painter</i></b></p>
-    <p>3720 Chattanooga Valley Road</p>
-    <p>Flintstone, Georgia 30725-2462 USA</p>
-    <p>PrivateAI@UnfilteredInvestigations.com</p>
-    <p style="font-size:1.6rem;color: red;">706.956.9000 Voice/Text</p>
+  <header>
+    <div class="wrap nav">
+      <!-- <div class="brand" aria-label="Unfiltered Investigations LLC">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Unfiltered Investigations LLC</span>
+      </div> -->
+      <!-- <nav class="links" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav> -->
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-label="Hero">
+      <div class="card">
+        <img class="banner" src="assets/WebBanner.png"
+          alt="Unfiltered Investigations LLC — contact: PrivateAI@UnfilteredInvestigations.com and +1 706 956 9000" />
+        <!-- <div class="hero-inner">
+          <div>
+            <h2>Judicially appointed and State Certified</h2>
+            <p class="sub">
+              Discreet, neutral, and supporting our constitutional right to due process for individuals and
+              organizations.
+            </p>
+          </div>
+          <div class="cta" aria-label="Primary actions">
+            <a class="btn primary" href="tel:+17069569000"
+              aria-label="Call Unfiltered Investigations at +1 706 956 9000">
+              Call Now
+            </a>
+            <a class="btn" href="sms:+17069569000" aria-label="Text Unfiltered Investigations at +1 706 956 9000">
+              Text Us
+            </a>
+            <a class="btn"
+              href="mailto:PrivateAI@UnfilteredInvestigations.com?subject=Inquiry%20-%20Unfiltered%20Investigations"
+              aria-label="Email Unfiltered Investigations">
+              Email
+            </a>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- <section id="services" class="grid" aria-label="Services">
+      <div class="section">
+        <h2>Common Engagements</h2>
+        <p>Investigation scope varies by jurisdiction and client needs. Typical matters include:</p>
+        <ul>
+          <li>Background and due diligence inquiries</li>
+          <li>Attempt to Locate and skip tracing</li>
+          <li>Surveillance support and documentation</li>
+          <li>Digital footprint and open-source research</li>
+          <li>Statement collection and case documentation</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2>How It Works</h2>
+        <p>
+          Initial intake, scope definition, and an agreed plan of action. You receive clear communication and
+          documented results aligned to the engagement objectives.
+        </p>
+        <ul>
+          <li>Confidential consultation</li>
+          <li>Defined scope and deliverables</li>
+          <li>Evidence-focused reporting</li>
+          <li>Secure communication options</li>
+        </ul>
+      </div>
+    </section> -->
+
+    <!-- <section id="about" class="section" aria-label="About">
+      <h2>About</h2>
+      <p>
+        Unfiltered Investigations LLC provides an emphasis on discretion,
+        thorough documentation, and client-aligned outcomes.
+      </p>
+    </section> -->
+
+    <section id="contact" class="section" style="margin-top:14px" aria-label="Contact">
+      <h2>Contact</h2>
+      <div class="contact">
+        <div class="pill">
+          <div>
+            <div class="label">Email</div>
+            <div class="value"><a
+                href="mailto:PrivateAI@UnfilteredInvestigations.com">PrivateAI@UnfilteredInvestigations.com</a></div>
+          </div>
+          <a class="btn" style="padding:10px 12px; border-radius:14px;"
+            href="mailto:PrivateAI@UnfilteredInvestigations.com?subject=Inquiry%20-%20Unfiltered%20Investigations">Compose</a>
+        </div>
+
+        <div class="pill">
+          <div>
+            <div class="label">Phone (voice/text)</div>
+            <div class="value"><a href="tel:+17069569000">+1 (706) 956-9000</a></div>
+          </div>
+          <a class="btn" style="padding:10px 12px; border-radius:14px;" href="tel:+17069569000">Call</a>
+        </div>
+      </div>
+
+      <p class="sub" style="margin-top:12px; color: red; text-align: center; font-size: large;">
+        If you are in immediate danger or need emergency assistance, contact local authorities by dialing <b>911</b>.
+      </p>
+    </section>
+
+    <footer>
+      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:18px;">
+        <div>© <span id="y"></span> Unfiltered Investigations LLC. All rights reserved. &bull; Georgia Private Detective
+          & Security Agencies
+          4383876 pending
+        </div>
+      </div>
+    </footer>
   </main>
+
+  <script>
+    // Set year without blocking render
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>
