@@ -35,6 +35,20 @@
       line-height: 1.45;
     }
 
+    .ui-banner-cards {
+      padding: 18px;
+      background: #000;
+    }
+
+    .cards-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      align-items: stretch;
+    }
+
     a {
       color: inherit
     }
@@ -104,9 +118,17 @@
     .card {
       background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
       border: 1px solid var(--border);
+      border-color: yellow;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
     }
 
     .banner {
@@ -284,9 +306,47 @@
 
   <main class="wrap">
     <section class="hero" aria-label="Hero">
+
       <div class="card">
-        <img class="banner" src="assets/WebBanner.png"
-          alt="Unfiltered Investigations LLC — contact: Management@UnfilteredInvestigations.com and +1 706 956 9000" />
+
+
+
+        <section class="ui-banner-cards" aria-label="Unfiltered Investigations Banner">
+          <div class="cards-grid">
+            <div class="card">
+              <img src="assets/Will Painter.png" alt="Will Painter" loading="lazy" />
+              <h2 style="text-align: center; color: white;">
+                <span style="font-size: 22px;">W</span><span style="font-size: 16px;">ILL</span>
+                <span style="font-size: 22px;">P</span><span style="font-size: 16px;">AINTER</span>
+                <span style="font-size: 22px;">- O</span><span style="font-size: 16px;">WNER</span>
+              </h2>
+            </div>
+            <div class="card">
+              <img src="assets/unfiltered_logo.png" alt="Unfiltered Investigations LLC logo" loading="lazy" />
+              <h2 style="text-align: center; color: red">
+                <span style="font-size: 18px;">Management<span style="color:white">@</span>E911Delivery.com</span>
+                <span style="font-size: 20px; color:white">+1 706.956.9000 voice/text</span>
+              </h2>
+              <h2 style="text-align: center; color: white">
+                <span style="font-size: 19px;">3720 Chattanooga Valley Road</span>
+                <span style="font-size: 18px; color:white">Flintstone, Georgia 30725-2462</span>
+              </h2>
+            </div>
+            <div class="card">
+              <br />
+              <img src="assets/Alan Painter.png" alt="Alan Painter" loading="lazy" />
+              <br />
+              <h2 style="text-align: center; color: white;">
+                <span>A</span><span style="font-size: 16px;">LAN</span>
+                <span>P</span><span style="font-size: 16px;">AINTER</span>
+                <span style="font-size: 22px;">- D</span><span style="font-size: 16px;">AD</span>
+              </h2>
+            </div>
+        </section>
+
+        <!-- <img class="banner" src="assets/WebBanner.png"
+          alt="Unfiltered Investigations LLC — contact: Management@UnfilteredInvestigations.com and +1 706 956 9000" /> -->
+
         <div class="hero-inner">
           <div>
             <p class="sub">
@@ -367,7 +427,7 @@
       </p>
       <p>
         &bull; Unfiltered Investigations LLC does <b style="color: red;"><i>not</i></b> provide services that are
-        exclusive to Georgia Code § 43-38-1 et seq.
+        non-overlapping to Georgia Code § 43-38-1 et seq.
       </p>
       <p>
         &bull; If you need a <b style="color: red;">Process Server</b> for legal papers

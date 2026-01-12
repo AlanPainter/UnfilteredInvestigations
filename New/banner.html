@@ -1,0 +1,89 @@
+<section class="ui-banner-cards" aria-label="Unfiltered Investigations Banner">
+    <div class="cards-grid">
+        <div class="card">
+            <img src="Will Painter.png" alt="Will Painter" loading="lazy" />
+            <h2 style="text-align: center; color: white;">
+                <span style="font-size: 22px;">W</span><span style="font-size: 16px;">ILL</span>
+                <span style="font-size: 22px;">P</span><span style="font-size: 16px;">AINTER</span>
+                <span style="font-size: 22px;">- O</span><span style="font-size: 16px;">WNER</span>
+            </h2>
+        </div>
+        <div class="card">
+            <img src="unfiltered_logo.png" alt="Unfiltered Investigations LLC logo" loading="lazy" />
+            <h2 style="text-align: center; color: red">
+                <span style="font-size: 26px;">Management<span style="color:white">@</span>E911Delivery.com</span>
+                <span style="font-size: 30px; color:white">706.956.9000 voice/text</span>
+            </h2>
+            <h2 style="text-align: center; color: white">
+                <span style="font-size: 24px;">3720 Chattanooga Valley Road</span>
+                <span style="font-size: 24px; color:white">Flintstone, Georgia 30725-2462</span>
+            </h2>
+        </div>
+        <div class="card">
+            <br />
+            <br />
+            <img src="Alan Painter.png" alt="Alan Painter" loading="lazy" />
+            <br />
+            <h2 style="text-align: center; color: white;">
+                <span>A</span><span style="font-size: 16px;">LAN</span>
+                <span>P</span><span style="font-size: 16px;">AINTER</span>
+                <span style="font-size: 22px;">- D</span><span style="font-size: 16px;">AD</span>
+            </h2>
+        </div>
+        <!-- <div class="card card--wide">
+            <img src="unfiltered_contact.png"
+                alt="Management@UnfilteredInvestigations.com, +1 706.956.9000 voice/text, 3720 Chattanooga Valley Road, Flintstone, Georgia 30725-2462"
+                loading="lazy" />
+        </div> -->
+    </div>
+</section>
+
+<style>
+    .ui-banner-cards {
+        padding: 18px;
+        background: #000;
+    }
+
+    .cards-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .card {
+        background: #0b0b0b;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        padding: 10px;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+        border-color: yellow;
+    }
+
+    .card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+    }
+
+    /* spans all 3 columns */
+    /* .card--wide {
+        grid-column: 1 / -1;
+
+    } */
+
+    /* Responsive */
+    @media (max-width: 900px) {
+        .cards-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .card--wide {
+            grid-column: auto;
+        }
+    }
+</style>
