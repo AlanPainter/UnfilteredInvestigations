@@ -7,6 +7,7 @@
   <meta name="description"
     content="Unfiltered Investigations LLC — Call/text +1 (706) 956-9000 or email Operations@UnfilteredInvestigations.com." />
   <title>Unfiltered Investigations LLC</title>
+
   <style>
     :root {
       --bg: #0b0f14;
@@ -22,41 +23,38 @@
     }
 
     * {
-      box-sizing: border-box
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 10% -10%, rgba(77, 163, 255, .22), transparent 55%),
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(77, 163, 255, .22), transparent 55%),
         radial-gradient(1200px 600px at 90% 0%, rgba(124, 77, 255, .18), transparent 55%),
         var(--bg);
       color: var(--text);
       line-height: 1.45;
     }
 
-    .ui-banner-cards {
-      padding: 18px;
-      background: #000;
-    }
-
-    .cards-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      align-items: stretch;
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
     a {
-      color: inherit
+      color: inherit;
     }
 
     .wrap {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 18px
+      padding: 18px;
     }
 
     header {
@@ -70,32 +68,65 @@
 
     .nav {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 12px;
     }
 
     .brand {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 10px;
       font-weight: 700;
       letter-spacing: .2px;
+      min-width: 0;
+      /* allow wrapping */
     }
 
     .dot {
       width: 10px;
       height: 10px;
       border-radius: 99px;
+      margin-top: 6px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 18px rgba(77, 163, 255, .35)
+      box-shadow: 0 0 18px rgba(77, 163, 255, .35);
+      flex: 0 0 auto;
+    }
+
+    .brand-lines {
+      display: grid;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .brand-title {
+      font-size: 16px;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    .brand-email {
+      font-size: 15px;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    .brand-email .user {
+      color: red;
+      font-size: 17px;
+    }
+
+    .brand-email .at,
+    .brand-email .dotw {
+      color: white;
     }
 
     .links {
       display: flex;
-      gap: 14px;
+      gap: 10px;
       align-items: center;
       font-size: 14px;
+      flex: 0 0 auto;
     }
 
     .links a {
@@ -103,57 +134,155 @@
       color: var(--muted);
       padding: 10px 10px;
       border-radius: 12px;
+      white-space: nowrap;
     }
 
     .links a:focus,
     .links a:hover {
       background: rgba(255, 255, 255, .06);
-      color: var(--text)
+      color: var(--text);
     }
 
-    .hero {
-      padding: 22px 0 10px;
-    }
-
-    .card {
+    /* Panels / Cards */
+    .panel {
       background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
       border: 1px solid var(--border);
-      border-color: yellow;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
     }
 
-    .card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
+    /* Banner area */
+    .ui-banner-cards {
+      padding: 16px;
+      background: #000;
     }
 
-    .banner {
-      width: 100%;
-      height: auto;
-      display: block;
-      background: #000;
+    .cards-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      gap: 16px;
+      align-items: stretch;
+      grid-template-columns: 1fr;
+      /* mobile first */
+    }
+
+    .person-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: 12px;
+    }
+
+    .person-card img {
+      border-radius: 12px;
+    }
+
+    .person-title {
+      text-align: center;
+      margin: 10px 0 0;
+      color: white;
+      font-weight: 800;
+      letter-spacing: .4px;
+    }
+
+    .name-big {
+      font-size: 22px;
+    }
+
+    .name-small {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .center-card h2 {
+      margin: 10px 0 0;
+    }
+
+    .phone-line {
+      text-align: center;
+      color: red;
+      margin-top: 2px;
+      font-weight: 800;
+    }
+
+    .phone-line span {
+      font-size: 18px;
+      color: white;
+    }
+
+    .address-block {
+      text-align: center;
+      margin-top: -4px;
+      color: white;
+    }
+
+    .address-block .red {
+      color: red;
+    }
+
+    .address-block .line1 {
+      font-size: 18px;
+    }
+
+    .address-block .line2 {
+      font-size: 16px;
+      margin-top: -2px;
+    }
+
+    .address-block .line3 {
+      font-size: 19px;
+      margin-top: 8px;
+    }
+
+    .address-block .line4 {
+      font-size: 18px;
+    }
+
+    hr.gradient {
+      height: 3px;
+      border: none;
+      border-radius: 6px;
+      background: linear-gradient(90deg,
+          rgba(13, 8, 96, 1) 0%,
+          rgba(9, 9, 121, 1) 21%,
+          rgba(6, 84, 170, 1) 51%,
+          rgba(0, 255, 113, 1) 100%);
+      margin: 10px 0;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 22px 0 10px;
     }
 
     .hero-inner {
       padding: 18px;
       display: grid;
       gap: 14px;
+      text-align: center;
     }
 
-    h1 {
-      margin: 2px 0 0;
-      font-size: clamp(22px, 3.2vw, 34px);
-      line-height: 1.12;
-    }
-
-    .sub {
-      color: var(--muted);
+    .taglines {
       margin: 0;
-      font-size: 15px;
+      font-size: clamp(19px, 4.8vw, 32px);
+      line-height: 1.18;
+    }
+
+    .taglines .r {
+      color: red;
+    }
+
+    .taglines .w {
+      color: white;
+    }
+
+    .taglines .t {
+      color: rgb(44, 117, 141);
+      font-weight: 800;
     }
 
     .cta {
@@ -164,7 +293,7 @@
     }
 
     .btn {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
@@ -173,7 +302,8 @@
       text-decoration: none;
       border: 1px solid var(--border);
       background: rgba(255, 255, 255, .06);
-      font-weight: 700;
+      font-weight: 800;
+      transition: transform .12s ease;
     }
 
     .btn.primary {
@@ -184,46 +314,50 @@
     }
 
     .btn:hover {
-      transform: translateY(-1px)
+      transform: translateY(-1px);
     }
 
     .btn:active {
-      transform: translateY(0px)
+      transform: translateY(0);
     }
 
-    .grid {
-      display: grid;
-      gap: 14px;
-      margin: 14px 0 26px;
-    }
-
+    /* Sections */
     .section {
       padding: 18px;
       border-radius: var(--radius);
       border: 1px solid var(--border);
       background: rgba(17, 24, 38, .55);
+      margin-top: 14px;
     }
 
     .section h2 {
       margin: 0 0 8px;
-      font-size: 18px
+      font-size: 18px;
     }
 
     .section p {
-      margin: 0;
-      color: var(--muted)
-    }
-
-    ul {
-      margin: 10px 0 0;
-      padding-left: 18px;
+      margin: 0 0 10px;
       color: var(--muted);
     }
 
-    li {
-      margin: 6px 0
+    .section p:last-child {
+      margin-bottom: 0;
     }
 
+    .section a {
+      color: red;
+    }
+
+    .legal-note {
+      color: rgb(44, 117, 141);
+    }
+
+    .legal-note .warn {
+      color: red;
+      font-weight: 800;
+    }
+
+    /* Contact */
     .contact {
       display: grid;
       gap: 12px;
@@ -243,15 +377,22 @@
 
     .pill .label {
       color: var(--muted);
-      font-size: 13px
+      font-size: 13px;
     }
 
     .pill .value {
-      font-weight: 700
+      font-weight: 800;
     }
 
     .pill a {
-      text-decoration: none
+      text-decoration: none;
+    }
+
+    .emergency {
+      margin-top: 12px;
+      color: red;
+      text-align: center;
+      font-size: clamp(18px, 4.2vw, 27px);
     }
 
     footer {
@@ -260,43 +401,50 @@
       font-size: 13px;
     }
 
-    /* Desktop enhancements */
-    @media (min-width: 780px) {
+    /* Responsive */
+    @media (min-width: 620px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav {
+        align-items: center;
+      }
+    }
+
+    @media (min-width: 960px) {
+      .cards-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
       .hero-inner {
-        padding: 22px;
         grid-template-columns: 1.25fr .75fr;
         align-items: center;
+        text-align: left;
       }
 
       .cta {
-        grid-template-columns: 1fr
-      }
-
-      .grid {
-        grid-template-columns: 1fr 1fr
+        max-width: 340px;
+        margin-left: auto;
       }
 
       .contact {
-        grid-template-columns: 1fr 1fr
+        grid-template-columns: 1fr 1fr;
       }
     }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
-      .btn:hover {
-        transform: none
+      html {
+        scroll-behavior: auto;
       }
-    }
 
-    hr.gradient {
-      height: 3px;
-      border: none;
-      border-radius: 6px;
-      background: linear-gradient(90deg,
-          rgba(13, 8, 96, 1) 0%,
-          rgba(9, 9, 121, 1) 21%,
-          rgba(6, 84, 170, 1) 51%,
-          rgba(0, 255, 113, 1) 100%);
+      .btn {
+        transition: none;
+      }
+
+      .btn:hover {
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -306,11 +454,16 @@
     <div class="wrap nav">
       <div class="brand" aria-label="Unfiltered Investigations LLC">
         <span class="dot" aria-hidden="true"></span>
-        <span>Unfiltered Investigations LLC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:
-        </span>
-        <span style="font-size: 17px; color: red;">Operations<span
-            style="color:white">@</span>UnfilteredInvestigations<span style="color:white">.</span>com</span>
+
+        <div class="brand-lines">
+          <div class="brand-title">Unfiltered Investigations LLC</div>
+          <div class="brand-email">
+            <span class="user">Operations</span><span class="at">@</span><span
+              class="user">UnfilteredInvestigations</span><span class="dotw">.</span><span class="user">com</span>
+          </div>
+        </div>
       </div>
+
       <nav class="links" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
@@ -320,55 +473,56 @@
 
   <main class="wrap">
     <section class="hero" aria-label="Hero">
-      <div class="card">
+      <div class="panel">
         <section class="ui-banner-cards" aria-label="Unfiltered Investigations Banner">
           <div class="cards-grid">
-            <div class="card">
+            <article class="person-card">
               <img src="assets/Will Painter.png" alt="Will Painter" loading="lazy" />
-              <h2 style="text-align: center; color: white;">
-                <span style="font-size: 22px;">W</span><span style="font-size: 16px;">ILL</span>
-                <span style="font-size: 22px;">P</span><span style="font-size: 16px;">AINTER</span>
-                <span style="font-size: 22px;">- O</span><span style="font-size: 16px;">WNER</span>
+              <h2 class="person-title">
+                <span class="name-big">W</span><span class="name-small">ILL</span>
+                <span class="name-big"> P</span><span class="name-small">AINTER</span>
+                <span class="name-big"> - O</span><span class="name-small">WNER</span>
               </h2>
-            </div>
-            <div class="card">
+            </article>
+
+            <article class="person-card center-card">
               <img src="assets/unfiltered_logo.png" alt="Unfiltered Investigations LLC logo" loading="lazy" />
-              <h2 style="text-align: center; color: red; margin-top: 2px;">
-                <span style="font-size: 22px; color:white">706.956.9000 voice/text</span>
-              </h2>
-              <h2 style="text-align: center; color: white; margin-top: -20px;">
-                <div style="color: red;">
-                  <div style="font-size: 18px;">808 Chestnut Street <span style="color: white;">&bull;</span> Suite 1266
-                  </div>
-                  <div style="font-size: 16px; margin-top: -5px;">Chattanooga, Tennessee 37402<span
-                      style="color: white;">-</span>2510</div>
-                </div>
-                <hr class="gradient">
-                <div style="font-size: 19px;">3720 Chattanooga Valley Road</div>
-                <div style="font-size: 18px;">Flintstone, Georgia 30725-2462</div>
-              </h2>
-            </div>
-            <div class="card">
-              <br />
-              <img src="assets/Alan Painter.png" alt="Alan Painter" loading="lazy" />
-              <h2 style="text-align: center; color: white;">
-                <span>A</span><span style="font-size: 16px;">LAN</span>
-                <span>P</span><span style="font-size: 16px;">AINTER</span>
-                <div style="margin-top: -10px;">
-                  <span style="font-size: 22px;">S</span><span style="font-size: 16px;">UPPORT</span>
+              <div class="phone-line">
+                <span>706.956.9000 voice/text</span>
+              </div>
+              <div class="address-block">
+                <div class="red line1">808 Chestnut Street <span style="color:white;">&bull;</span> Suite 1266</div>
+                <div class="red line2">Chattanooga, Tennessee 37402-2510</div>
+                <hr class="gradient" />
+                <div class="line3">3720 Chattanooga Valley Road</div>
+                <div class="line4">Flintstone, Georgia 30725-2462</div>
+              </div>
+            </article>
+
+            <article class="person-card">
+              <img src="assets/Alan Painter.png" alt="Alan Painter" loading="lazy"
+                style="margin-left:25px; margin-top: 50px;" />
+              <h2 class="person-title">
+                <span class="name-big">A</span><span class="name-small">LAN</span>
+                <span class="name-big"> P</span><span class="name-small">AINTER</span>
+                <div style="margin-top: -6px;">
+                  <span class="name-big">C</span><span class="name-small">ONSULTANT</span>
+                  <span class="name-big"> E</span><span class="name-small">MERITUS</span>
                 </div>
               </h2>
-            </div>
+            </article>
+          </div>
         </section>
 
-        <div class="hero-inner" style="text-align: center;">
-          <div>
-            <p class="sub" style="font-size: xx-large;">
-              <span style="color:red">- &bull; - Unfiltered Facts - &bull; -<br /></span>
-              <span style="color:white">- &bull; - Accelerated by AI - &bull; -<br /></span>
-              <span style="color:rgb(44, 117, 141)"><b>- &bull; - Responsible Verified Truth - &bull; -</b></span>
+        <div class="hero-inner">
+          <div style="text-align: center;">
+            <p class="taglines">
+              <span class="r">- &bull; - Unfiltered Facts - &bull; -</span><br />
+              <span class="w">- &bull; - Accelerated by AI - &bull; -</span><br />
+              <span class="t">- &bull; - Responsible Verified Truth - &bull; -</span>
             </p>
           </div>
+
           <div class="cta" aria-label="Primary actions">
             <a class="btn primary" href="tel:+17069569000"
               aria-label="Call Unfiltered Investigations at +1 706 956 9000">
@@ -378,7 +532,7 @@
               Text Us
             </a>
             <a class="btn"
-              href="mailto:Operations@UnfilteredInvestigations.com?subject=Inquiry%20-%20Unfiltered%20Investigations LLC"
+              href="mailto:Operations@UnfilteredInvestigations.com?subject=Inquiry%20-%20Unfiltered%20Investigations%20LLC"
               aria-label="Email Unfiltered Investigations LLC">
               Email
             </a>
@@ -389,110 +543,106 @@
 
     <section id="about" class="section" aria-label="About">
       <h2>About</h2>
-      <p>
-        &bull; <b>Unfiltered Investigations LLC</b> mission is to deconstruct complex issues that
-        can allow knowledge to become <b>wisdom</b>.
+
+      <p>&bull; <b>Unfiltered Investigations LLC</b> mission is to deconstruct complex issues that can allow knowledge
+        to become <b>wisdom</b>.</p>
+
+      <p>&bull; <i>International Expert</i> in the fields of Computer Forensics, Cybersecurity, Digital Footprint, and
+        Radio Frequency Investigations.</p>
+
+      <p>&bull; DoD 8140 IAT (Information Assurance Technical) level II certified personnel. For more info click here:
+        <a target="_blank" rel="noopener noreferrer" href="https://www.cyber.mil">www.Cyber.mil</a>
       </p>
-      <p>
-        &bull; <i>International Expert</i> in the fields of Computer Forensics, Cybersecurity, Digital Footprint,
-        and Radio
-        Frequency Investigations.
-      </p>
-      <p>
-        &bull; DoD 8140 IAT (Information Assurance Technical) level II certified personnel. For more info click here:
-        <a target="_blank" rel="noopener noreferrer" href="https://www.cyber.mil" style="color: red;">www.Cyber.mil</a>
-      </p>
-      <p>
-        &bull; <i>Certified</i> at the Federal level, in AI Auditing Roles and span of control.
-      </p>
-      <p>
-        &bull; <i>Microsoft consultant</i> for Department of Homeland Security, Georgia Bureau of Investigation &amp;
+
+      <p>&bull; <i>Certified</i> at the Federal level, in AI Auditing Roles and span of control.</p>
+
+      <p>&bull; <i>Microsoft consultant</i> for Department of Homeland Security, Georgia Bureau of Investigation &amp;
         Atlanta Police (<a target="_blank" rel="noopener noreferrer"
-          href="https://www.nfl.com/videos/patriots-vs-rams-highlights-super-bowl-liii-403708" style="color: red;">Super
-          Bowl LIII</a>)
+          href="https://www.nfl.com/videos/patriots-vs-rams-highlights-super-bowl-liii-403708">Super Bowl LIII</a>)
       </p>
-      <p>
-        &bull; <i>Licensed Expert</i> by the Federal Communications Commission -- 47 CFR Parts 15, 95E, 97 and 101
-        (<a target="_blank" rel="noopener noreferrer" href="https://fcc.gov" style="color: red;">FCC</a>)
+
+      <p>&bull; <i>Licensed Expert</i> by the Federal Communications Commission -- 47 CFR Parts 15, 95E, 97 and 101
+        (<a target="_blank" rel="noopener noreferrer" href="https://fcc.gov">FCC</a>)
       </p>
-      <p>
-        &bull; <i>Client,</i> United States Transportation Command (<a target="_blank" rel="noopener noreferrer"
-          href="https://www.ustranscom.mil/" style="color: red;">USTransCOM</a>)
+
+      <p>&bull; <i>Client,</i> United States Transportation Command
+        (<a target="_blank" rel="noopener noreferrer" href="https://www.ustranscom.mil/">USTransCOM</a>)
       </p>
-      <p>
-        &bull; <i>Clients,</i> United States Army Security Assistance Command -- partners including <i>NATO and US
+
+      <p>&bull; <i>Clients,</i> United States Army Security Assistance Command -- partners including <i>NATO and US
           Allies</i>
-        (<a target="_blank" rel="noopener noreferrer" href="https://www.army.mil/usasac" style="color: red;">USASAC</a>)
+        (<a target="_blank" rel="noopener noreferrer" href="https://www.army.mil/usasac">USASAC</a>)
       </p>
-      <p>
-        &bull; <i>Client,</i> United States Army Aviation and Missile Command (<a target="_blank"
-          rel="noopener noreferrer" href="https://www.amcom.army.mil/" style="color: red;">AMCOM</a>)
+
+      <p>&bull; <i>Client,</i> United States Army Aviation and Missile Command
+        (<a target="_blank" rel="noopener noreferrer" href="https://www.amcom.army.mil/">AMCOM</a>)
       </p>
-      <p>
-        &bull; <i>Clients,</i> United States Air Force &amp; National Aeronautics and Space Administration (<a
-          target="_blank" rel="noopener noreferrer"
-          href="https://www.arnold.af.mil/About-Us/Fact-Sheets/Display/Article/409293/propulsion-wind-tunnel-facility/"
-          style="color: red;">Wind Tunnel Facility</a>)
+
+      <p>&bull; <i>Clients,</i> United States Air Force &amp; National Aeronautics and Space Administration
+        (<a target="_blank" rel="noopener noreferrer"
+          href="https://www.arnold.af.mil/About-Us/Fact-Sheets/Display/Article/409293/propulsion-wind-tunnel-facility/">Wind
+          Tunnel Facility</a>)
       </p>
-      <p>
-        &bull; <i>In House Investigative Consultants</i> for
-        <a target="_blank" rel="noopener noreferrer" href="http://www.E911News.com" style="color: red;">E911 News
-          LLC</a> who is a member of
-        <a target="_blank" rel="noopener noreferrer" href="https://gfaf.org/" style="color: red;">Ga 1st
-          Amendment Foundation</a>
+
+      <p>&bull; <i>In House Investigative Researchers</i> for
+        <a target="_blank" rel="noopener noreferrer" href="http://www.E911News.com">E911 News LLC</a> who is a member of
+        <a target="_blank" rel="noopener noreferrer" href="https://gfaf.org/">Ga 1st Amendment Foundation</a>
       </p>
-      </p>
-      <p style="color: rgb(44, 117, 141);">
-        &bull; Unfiltered Investigations LLC provides services <span style="color: red;">not subject</span> to state
-        private
-        investigator licensing. We <span style="color: red;">can't </span>provide legal advice.
-      </p>
-      <p>
-        &bull; If you need a <b style="color: red;">Process Server</b> for legal documents handling, for more
-        information click here:
-        <a target="_blank" rel="noopener noreferrer" href="https://E911Delivery.com"
-          style="color: red;">E911Delivery.com</a>
+
+      <p class="legal-note">
+        &bull; Unfiltered Investigations LLC provides services not subject to state private
+        investigator licensing • dba
+        <a target="_blank" rel="noopener noreferrer" href="https://E911Delivery.com">E911Delivery.com</a>
       </p>
     </section>
 
-    <section id="contact" class="section" style="margin-top:14px" aria-label="Contact">
+    <section id="contact" class="section" aria-label="Contact">
       <h2>Contact</h2>
+
       <div class="contact">
         <div class="pill">
           <div>
             <div class="label">Email</div>
-            <div class="value">
-              <a style="font-size: 15px;"
-                href="mailto:Operations@UnfilteredInvestigations.com">Operations@UnfilteredInvestigations.com</a>
+            <div>
+              <a style="font-size: 15px; color: white;"
+                href="mailto:Operations@UnfilteredInvestigations.com"><b>Operations@UnfilteredInvestigations.com</b></a>
             </div>
           </div>
-          <a class="btn" style="padding:10px 12px; border-radius:14px;"
-            href="mailto:Operations@UnfilteredInvestigations.com?subject=Inquiry%20-%20Unfiltered%20Investigations LLC">Compose</a>
+
+          <a class="btn" style="padding:10px 12px; border-radius:14px; color: white;"
+            href="mailto:Operations@UnfilteredInvestigations.com?subject=Inquiry%20-%20Unfiltered%20Investigations%20LLC">
+            Compose
+          </a>
         </div>
 
         <div class="pill">
           <div>
             <div class="label">Phone (voice/text)</div>
-            <div class="value"><a href="tel:+17069569000">+1 (706) 956-9000</a></div>
+            <div class="value"><a href="tel:+17069569000" style="color: white;">+1 (706) 956-9000</a></div>
           </div>
-          <a class="btn" style="padding:10px 12px; border-radius:14px;" href="tel:+17069569000">Call</a>
+
+          <a class="btn" style="padding:10px 12px; border-radius:14px;" href="tel:+17069569000"><span
+              style="color: white;">Call</span></a>
         </div>
       </div>
 
-      <p class="sub" style="margin-top:12px; color: red; text-align: center; font-size: x-large;">
-        If you are in immediate danger or need emergency assistance dial => <b>911</b>.
+      <p class="emergency">
+        If you are in immediate danger or need emergency assistance dial =&gt; <b style="color: red;">911</b>
       </p>
     </section>
+
     <footer>
       <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:18px;">
-        <div>© <span id="y"></span> Unfiltered Investigations LLC - &bull; - All rights reserved - &bull; - site content
-          can change without notice - &bull; - We are <b style="color: red;">unable</b> to provide legal advice</div>
+        <div>
+          © <span id="y"></span> Unfiltered Investigations LLC - &bull; - All rights reserved - &bull; - site content
+          can change without notice
+          - &bull; - We are <b style="color:red;">unable</b> to provide legal advice
+        </div>
       </div>
     </footer>
   </main>
 
   <script>
-    // Set year without blocking render
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
